@@ -45,7 +45,7 @@ const authors = [
 const reviews = [
   {
     id: "1",
-    rating: 4.5,
+    rating: 4,
     content: "lorem ipsum",
     author_id: "1",
     product_id: "2",
@@ -73,7 +73,7 @@ const reviews = [
   },
   {
     id: "5",
-    rating: 4.5,
+    rating: 4,
     content: "lorem ipsum",
     author_id: "3",
     product_id: "1",
