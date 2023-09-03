@@ -122,6 +122,14 @@ const typeDefs = `#graphql
         products: [Product]
         authors: [Author]
     }
+    type Mutation {
+      addProduct(product: AddProductInput): Product
+      deleteProduct(id: ID!): [Product]
+    }
+    input AddProductInput {
+      name: String!,
+      type: [String!]!
+    }
 `;
 
 export const resolvers = {
@@ -150,6 +158,15 @@ export const resolvers = {
       authors.find((author) => author.id === parent.author_id),
     product: (parent: any) =>
       products.find((product) => product.id === parent.product_id),
+  },
+  Mutation: {
+    deleteProduct: (_: any, args: any) =>
+      products.filter((product) => product.id !== args.id),
+    addProduct: (_: any, args: any) => {
+      const product = { id: (products.length + 1).toString(), ...args.product };
+      products.push(product);
+      return product;
+    },
   },
 };
 
