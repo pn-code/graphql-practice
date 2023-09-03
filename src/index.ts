@@ -99,16 +99,20 @@ const typeDefs = `#graphql
         id: ID!
         name: String!
         type: [String!]!
+        reviews: [Review!]
     }
     type Review {
         id: ID!
         rating: Int!
         content: String!
+        product: Product!
+        author: Author!
     }
     type Author {
         id: ID!
         name: String!
         verified: Boolean!
+        reviews: [Review!]
     }
     type Query {
         review(id: ID!): Review
@@ -131,6 +135,21 @@ export const resolvers = {
       products.find((product) => product.id === args.id),
     author: (_: any, args: any) =>
       authors.find((author) => author.id === args.id),
+  },
+  // We can create an object to allow query for related data
+  Product: {
+    reviews: (parent: any) =>
+      reviews.filter((review) => review.product_id === parent.id),
+  },
+  Author: {
+    reviews: (parent: any) =>
+      reviews.filter((review) => review.author_id === parent.id),
+  },
+  Review: {
+    author: (parent: any) =>
+      authors.find((author) => author.id === parent.author_id),
+    product: (parent: any) =>
+      products.find((product) => product.id === parent.product_id),
   },
 };
 
