@@ -111,21 +111,28 @@ const typeDefs = `#graphql
         verified: Boolean!
     }
     type Query {
+        review(id: ID!): Review
+        product(id: ID!): Product
+        author(id: ID!): Author
         reviews: [Review]
         products: [Product]
         authors: [Author]
     }
 `;
 
-
 export const resolvers = {
   Query: {
     products: () => products,
     reviews: () => reviews,
     authors: () => authors,
+    review: (_: any, args: any) =>
+      reviews.find((review) => review.id === args.id),
+    product: (_: any, args: any) =>
+      products.find((product) => product.id === args.id),
+    author: (_: any, args: any) =>
+      authors.find((author) => author.id === args.id),
   },
 };
-
 
 // server setup
 const server = new ApolloServer({
