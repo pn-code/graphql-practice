@@ -1,7 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
-const products = [
+let products = [
   {
     id: "1",
     name: "Apple 2022 MacBook Pro Laptop",
@@ -24,7 +24,7 @@ const products = [
   },
 ];
 
-const authors = [
+let authors = [
   {
     id: "1",
     name: "John",
@@ -42,7 +42,7 @@ const authors = [
   },
 ];
 
-const reviews = [
+let reviews = [
   {
     id: "1",
     rating: 4,
@@ -125,10 +125,15 @@ const typeDefs = `#graphql
     type Mutation {
       addProduct(product: AddProductInput): Product
       deleteProduct(id: ID!): [Product]
+      updateProduct(id: ID!, edits: EditProductInput!): Product
     }
     input AddProductInput {
       name: String!,
       type: [String!]!
+    }
+    input EditProductInput {
+      name: String,
+      type: [String!]
     }
 `;
 
@@ -166,6 +171,13 @@ export const resolvers = {
       const product = { id: (products.length + 1).toString(), ...args.product };
       products.push(product);
       return product;
+    },
+    updateProduct: (_: any, args: any) => {
+      products = products.map((product) =>
+        product.id === args.id ? { ...product, ...args.edits } : product
+      );
+
+      return products.find((product) => product.id === args.id);
     },
   },
 };
