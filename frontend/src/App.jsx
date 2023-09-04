@@ -1,10 +1,11 @@
-import DisplayProducts from "../components/DisplayProducts";
+import DisplayProducts from "./components/DisplayProducts";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-full">
-      <h2>My first Apollo app 🚀</h2>
+    <main className="flex flex-col h-screen w-full bg-gray-100">
+      <Navbar />
       <DisplayProducts />
-    </div>
+    </main>
   );
 }
