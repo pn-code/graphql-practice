@@ -3,7 +3,7 @@ import { MapPin, UserCircle, ShoppingCart, Search, Menu } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center shadow-md bg-zinc-900 p-4 text-white">
+    <nav className="flex justify-between items-center shadow-md bg-zinc-900 p-2 py-4 text-white sm:px-10">
       <header className="flex gap-8 items-center">
         <h1 className="text-xl font-semibold">GraphQL E-Commerce</h1>
 
