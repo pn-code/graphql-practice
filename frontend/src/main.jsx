@@ -7,6 +7,7 @@ import "./index.css";
 import Root from "./routes/root.jsx";
 import ErrorPage from "./error-page.jsx";
 import Home from "./routes/home.jsx";
+import Product from "./routes/product.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "products/:productId",
+        element: <Product />,
       },
     ],
   },
