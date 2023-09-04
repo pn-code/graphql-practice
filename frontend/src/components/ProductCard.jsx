@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import RatingDisplay from "./RatingDisplay";
 
 export default function ProductCard({ product }) {
@@ -23,9 +24,9 @@ export default function ProductCard({ product }) {
             </h4>
           </div>
 
-          <button className="hidden sm:flex bg-amber-300 text-gray-800 font-semibold py-1.5 px-3 rounded-sm  hover:bg-amber-400 ease-in-out duration-200 hover:text-white">
+          <Link to={`/products/${product.id}`} className="w-44 hidden sm:block text-center bg-amber-300 text-gray-800 font-semibold py-1.5 px-3 rounded-sm  hover:bg-amber-400 ease-in-out duration-200 hover:text-white">
             Add to Cart
-          </button>
+          </Link>
         </div>
       </section>
     </article>
