@@ -8,6 +8,9 @@ export const GET_PRODUCTS = gql`
       type
       price
       img
+      reviews {
+        rating
+      }
     }
   }
 `;
