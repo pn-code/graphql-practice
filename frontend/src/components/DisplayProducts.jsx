@@ -12,7 +12,7 @@ export default function DisplayProducts() {
   const { products } = data;
 
   return (
-    <section className="flex gap-4 flex-wrap w-full h-full">
+    <section className="flex flex-col sm:flex-row sm:gap-4 sm:flex-wrap w-full h-full sm:px-10 sm:py-0 ">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
