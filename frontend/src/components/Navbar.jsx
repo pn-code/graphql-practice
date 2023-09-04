@@ -1,11 +1,19 @@
 import React from "react";
 import { MapPin, UserCircle, ShoppingCart, Search, Menu } from "lucide-react";
+import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center shadow-md bg-zinc-900 p-2 py-4 text-white sm:px-10">
-      <header className="flex gap-8 items-center">
-        <h1 className="text-xl font-semibold">GraphQL E-Commerce</h1>
+    <nav className="flex justify-between items-center shadow-md bg-zinc-900 p-2 py-2 text-white sm:px-10">
+      <header className="flex gap-5 items-center">
+        <Link to="/">
+          <img
+            className="w-[200px] rounded-md"
+            src={Logo}
+            alt="Commerce Logo"
+          />
+        </Link>
 
         <section className="hidden sm:flex gap-2">
           <button className="flex gap-2 items-center font-semibold bg-zinc-700 hover:bg-zinc-600 duration-200 ease-in-out px-2 py-1.5 rounded-sm">
