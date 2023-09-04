@@ -6,21 +6,29 @@ let products = [
     id: "1",
     name: "Apple 2022 MacBook Pro Laptop",
     type: ["electronics, laptops"],
+    price: 130000,
+    img: "https://m.media-amazon.com/images/I/51d1QuPfVnL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
   },
   {
     id: "2",
     name: "Apple 2022 MacBook Air Laptop",
     type: ["electronics, laptops"],
+    price: 80000,
+    img: "https://m.media-amazon.com/images/I/71TPda7cwUL.__AC_SY445_SX342_QL70_FMwebp_.jpg",
   },
   {
     id: "3",
     name: "Beats Studio Pro",
     type: ["electronics, headphones"],
+    price: 25000,
+    img: "https://m.media-amazon.com/images/I/51bRSWrEc7S._AC_UL320_.jpg",
   },
   {
     id: "4",
     name: "Beats Studio Buds",
     type: ["electronics, headphones"],
+    price: 10000,
+    img: "https://m.media-amazon.com/images/I/61u-OaDSfQL._AC_UL320_.jpg",
   },
 ];
 
@@ -99,6 +107,8 @@ const typeDefs = `#graphql
         id: ID!
         name: String!
         type: [String!]!
+        price: Int!,
+        img: String!,
         reviews: [Review!]
     }
     type Review {
