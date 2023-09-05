@@ -6,7 +6,10 @@ export default function ProductCard({ product }) {
   const ratings = product.reviews.map((review) => review.rating);
 
   return (
-    <article className="w-full flex bg-gray-50 p-4 rounded-md flex-row sm:flex-col sm:w-[260px] h-60 h items-stretch sm:items-center border-b-2 border-gray-200 sm:border-transparent gap-6 justify-center">
+    <Link
+      className="w-full flex bg-gray-50 p-4 rounded-md flex-row sm:flex-col sm:w-[260px] h-60 h items-stretch sm:items-center border-b-2 gap-6 justify-center hover:shadow-md duration-200 ease-in-out"
+      to={`/products/${product.id}`}
+    >
       <div className="w-[160px] h-[80px] sm:w-[200px] sm:h-[120px]">
         <img
           className="w-full h-full object-contain object-center"
@@ -24,11 +27,14 @@ export default function ProductCard({ product }) {
             </h4>
           </div>
 
-          <Link to={`/products/${product.id}`} className="w-44 hidden sm:block text-center bg-amber-300 text-gray-800 font-semibold py-1.5 px-3 rounded-sm  hover:bg-amber-400 ease-in-out duration-200 hover:text-white">
+          <Link
+            to={`/products/${product.id}`}
+            className="w-44 hidden sm:block text-center bg-amber-300 text-gray-800 font-semibold py-1.5 px-3 rounded-sm  hover:bg-amber-400 ease-in-out duration-200 hover:text-white"
+          >
             Add to Cart
           </Link>
         </div>
       </section>
-    </article>
+    </Link>
   );
 }
