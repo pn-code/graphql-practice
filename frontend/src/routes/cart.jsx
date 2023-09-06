@@ -9,7 +9,7 @@ export default function Cart() {
   const cartTotal = cart.reduce((acc, product) => product.price + acc, 0);
 
   return (
-    <section className="w-full min-h-[calc(100vh-200px)] flex flex-col p-2 sm:flex-row mt-2 gap-4 sm:justify-center sm:items-center sm:gap-10">
+    <section className="w-full min-h-[calc(100vh-200px)] flex flex-col p-2 sm:flex-row mt-2 gap-4 sm:justify-center sm:items-start sm:gap-10">
       <section className="flex flex-col gap-2">
         <h2 className="text-2xl font-semibold text-left">Your Cart</h2>
         <section className="w-full h-[40vh] sm:h-[calc(100vh-200px)] flex flex-col gap-2 overflow-y-auto">
