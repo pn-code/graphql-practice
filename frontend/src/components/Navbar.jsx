@@ -47,7 +47,7 @@ export default function Navbar() {
         <li className="cursor-pointer hover:scale-110 duration-200 ease-in-out">
           <Link className="relative" to="/cart">
             <ShoppingCart size={28} />
-            <span className="absolute -top-2 -right-3 bg-blue-500 rounded-full h-[18px] text-sm w-[18px] font-semibold flex items-center justify-center">{cart.length}</span>
+            <span className="absolute -top-2 -right-2 sm:-right-3 bg-blue-500 rounded-full w-[16px] h-[16px] text-xs sm:h-[18px] sm:text-sm sm:w-[18px] sm:font-semibold flex items-center justify-center">{cart.length}</span>
           </Link>
         </li>
       </ul>
