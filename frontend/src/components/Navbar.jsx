@@ -2,8 +2,12 @@ import React from "react";
 import { MapPin, UserCircle, ShoppingCart, Search, Menu } from "lucide-react";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 export default function Navbar() {
+  const { cart } = useContext(CartContext);
+
   return (
     <nav className="z-20 flex justify-between items-center shadow-md bg-zinc-900 p-2 py-2 text-white sm:px-10">
       <header className="flex gap-5 items-center">
@@ -41,7 +45,10 @@ export default function Navbar() {
           <UserCircle size={28} />
         </li>
         <li className="cursor-pointer hover:scale-110 duration-200 ease-in-out">
-          <ShoppingCart size={28} />
+          <Link className="relative" to="/cart">
+            <ShoppingCart size={28} />
+            <span className="absolute -top-2 -right-3 bg-blue-500 rounded-full h-[18px] text-sm w-[18px] font-semibold flex items-center justify-center">{cart.length}</span>
+          </Link>
         </li>
       </ul>
     </nav>
