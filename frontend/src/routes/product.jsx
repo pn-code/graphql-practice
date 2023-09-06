@@ -21,7 +21,7 @@ export default function Product() {
   const ratings = product.reviews.map((review) => review.rating);
 
   // Cart Functionality
-  const { addToCart } = useContext(CartContext);
+  const { cart, addToCart } = useContext(CartContext);
 
   return (
     <section className="mt-8 sm:mt-0 w-full h-full sm:min-h-[calc(100vh-200px)] flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -54,7 +54,9 @@ export default function Product() {
               </span>
             </div>
             <button
-              onClick={() => addToCart(product)}
+              onClick={() =>
+                addToCart({ ...product, cartIndex: cart.length + 1 })
+              }
               className="bg-amber-300 text-black px-4 py-1 font-semibold rounded-sm hover:bg-amber-400 hover:text-white ease-in-out duration-200"
             >
               Add to Cart
