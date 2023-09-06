@@ -8,6 +8,7 @@ import Root from "./routes/root.jsx";
 import ErrorPage from "./error-page.jsx";
 import Home from "./routes/home.jsx";
 import Product from "./routes/product.jsx";
+import { CartProvider } from "../contexts/CartContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </ApolloProvider>
   </React.StrictMode>
 );
