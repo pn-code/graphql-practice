@@ -11,13 +11,17 @@ export default function Cart() {
     <section className="flex justify-center items-start sm:mt-10 sm:gap-10">
       <section className="flex flex-col gap-2">
         <h2 className="text-2xl font-semibold text-left">Your Cart</h2>
-        {cart.length > 0 ? (
-          cart.map((product, idx) => (
-            <CartCard key={idx} index={idx} product={product} />
-          ))
-        ) : (
-          <div className="bg-gray-50 p-4 rounded-sm border-2 border-gray-500">There are no items in your cart.</div>
-        )}
+        <section className="w-full h-[calc(100vh-200px)] flex flex-col gap-2 overflow-y-auto">
+          {cart.length > 0 ? (
+            cart.map((product, idx) => (
+              <CartCard key={idx} index={idx} product={product} />
+            ))
+          ) : (
+            <div className="bg-gray-50 p-4 rounded-sm border-2 border-gray-500">
+              There are no items in your cart.
+            </div>
+          )}
+        </section>
       </section>
       <section className="flex flex-col gap-2">
         <h2 className="text-2xl font-semibold text-left">Your Total</h2>
