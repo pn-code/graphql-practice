@@ -19,9 +19,9 @@ export default function Product() {
   const ratings = product.reviews.map((review) => review.rating);
 
   return (
-    <section className="w-full min-h-[calc(100vh-200px)] flex items-center justify-center gap-4">
+    <section className="mt-8 sm:mt-0 w-full h-full sm:min-h-[calc(100vh-200px)] flex flex-col sm:flex-row items-center justify-center gap-4">
       {/* Product */}
-      <div className="h-[260px] flex flex-col sm:flex-row gap-4 sm:gap-8 p-10 bg-gray-50 rounded-sm">
+      <div className="sm:h-[260px] flex flex-col sm:flex-row gap-4 sm:gap-8 p-10 bg-gray-50 rounded-sm items-center sm:items-start">
         <div className="w-[200px] h-[120px] sm:w-[240px] sm:h-[160px]">
           <img
             className="w-full h-full object-contain object-center"
