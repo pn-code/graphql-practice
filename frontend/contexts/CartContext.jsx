@@ -9,8 +9,8 @@ export function CartProvider({ children }) {
     setCart((prev) => [...prev, product]);
   }
 
-  function removeFromCart(productId) {
-    setCart((prev) => prev.filter((product) => product.id != productId));
+  function removeFromCart(cartIndex) {
+    setCart((prev) => prev.filter((product) => product.cartIndex != cartIndex));
   }
 
   const value = { cart, addToCart, removeFromCart };
